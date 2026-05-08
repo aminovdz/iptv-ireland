@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D1321"/>
+      <stop offset="100%" stop-color="#0A0E17"/>
+    </linearGradient>
+    <radialGradient id="glowLeft" cx="20%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#169B62" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#169B62" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowRight" cx="80%" cy="70%" r="60%">
+      <stop offset="0%" stop-color="#FF883E" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FF883E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#glowLeft)"/>
+  <rect width="1200" height="630" fill="url(#glowRight)"/>
+  <!-- Subtle grid -->
+  <g stroke="rgba(255,136,62,0.03)" stroke-width="1">
+    <line y1="0" x1="150" y2="630" x2="150"/><line y1="0" x1="300" y2="630" x2="300"/>
+    <line y1="0" x1="450" y2="630" x2="450"/><line y1="0" x1="600" y2="630" x2="600"/>
+    <line y1="0" x1="750" y2="630" x2="750"/><line y1="0" x1="900" y2="630" x2="900"/>
+    <line y1="0" x1="1050" y2="630" x2="1050"/><line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/><line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="525" x2="1200" y2="525"/>
+  </g>
+  <!-- Logo icon -->
+  <g transform="translate(600, 240)">
+    <rect x="-40" y="-40" width="80" height="80" rx="16" fill="url(#green)" transform="rotate(45 0 0)" style="fill: linear-gradient(135deg, #169B62, #0E6B42);"/>
+    <svg x="-20" y="-20" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    </svg>
+  </g>
+  <!-- Main text -->
+  <text x="600" y="360" text-anchor="middle" fill="white" font-family="system-ui" font-size="52" font-weight="900" letter-spacing="-1">IPTV Ireland</text>
+  <text x="600" y="405" text-anchor="middle" fill="#8C96AA" font-family="system-ui" font-size="20" font-weight="500">Best IPTV Subscription in Ireland</text>
+  <!-- Stats row -->
+  <g transform="translate(0, 460)">
+    <text x="300" y="0" text-anchor="middle" fill="#169B62" font-family="system-ui" font-size="32" font-weight="800">10,000+</text>
+    <text x="300" y="28" text-anchor="middle" fill="#8C96AA" font-family="system-ui" font-size="14">Channels</text>
+    <text x="600" y="0" text-anchor="middle" fill="#FF883E" font-family="system-ui" font-size="32" font-weight="800">4K Ultra HD</text>
+    <text x="600" y="28" text-anchor="middle" fill="#8C96AA" font-family="system-ui" font-size="14">Quality</text>
+    <text x="900" y="0" text-anchor="middle" fill="#169B62" font-family="system-ui" font-size="32" font-weight="800">24/7</text>
+    <text x="900" y="28" text-anchor="middle" fill="#8C96AA" font-family="system-ui" font-size="14">Support</text>
+  </g>
+  <!-- Irish flag decorative line -->
+  <rect x="200" y="545" width="200" height="4" rx="2" fill="#169B62"/>
+  <rect x="400" y="545" width="400" height="4" rx="2" fill="white" opacity="0.15"/>
+  <rect x="600" y="545" width="400" height="4" rx="2" fill="#FF883E"/>
+  <text x="600" y="585" text-anchor="middle" fill="#5F6B80" font-family="system-ui" font-size="14">iptv-irish.ie — Dublin, Belfast, Cork, Limerick, Waterford</text>
+</svg>

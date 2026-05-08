@@ -1,0 +1,200 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppPopup from '../../components/WhatsAppPopup.astro';
+import WhatsPopup from '../../components/WhatsPopup.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { city: 'dublin' } },
+    { params: { city: 'belfast' } },
+    { params: { city: 'cork' } },
+    { params: { city: 'limerick' } },
+    { params: { city: 'waterford' } },
+  ];
+}
+
+const { city } = Astro.params;
+const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+const cityDisplay = city === 'belfast' ? 'Belfast' : cityName;
+
+const title = `IPTV Ireland in ${cityDisplay} | Best IPTV Subscription ${cityDisplay} 2024`;
+const description = `Best IPTV subscription in ${cityDisplay}. 10,000+ channels, 4K streaming, Irish sports. IPTV Ireland — the #1 choice in ${cityDisplay}. Free trial available.`;
+
+const whatsappOrder = "https://wa.link/9ezhx6";
+
+const plans = [
+  { name: '1 Month', price: '8', period: 'total', monthly: '8,00/month', savePct: null, popular: false, features: ['All worldwide channels', 'Updated films & series', 'EPG guide included', 'Catchup feature', '24/7 support'], cta: 'Order Now', ctaClass: 'btn-outline' },
+  { name: '3 Months', price: '20', period: 'total', monthly: '6,67/month', savePct: '17%', popular: false, features: ['All worldwide channels', 'Updated films & series', 'EPG guide included', 'Catchup feature', '24/7 support'], cta: 'Order Now', ctaClass: 'btn-outline' },
+  { name: '6 Months', price: '30', period: 'total', monthly: '5,00/month', savePct: '37%', popular: false, features: ['All worldwide channels', 'Updated films & series', 'EPG guide included', 'Catchup feature', '24/7 support'], cta: 'Order Now', ctaClass: 'btn-outline' },
+  { name: '12 Months', price: '55', period: 'total', monthly: '4,58/month', savePct: '43%', popular: true, features: ['All worldwide channels', 'Updated films & series', 'EPG guide included', 'Catchup feature', 'VIP 24/7 support', '1 year player licence bonus'], cta: 'Order Now', ctaClass: 'btn-primary' },
+];
+
+const cityContent = {
+  dublin: { desc: 'The capital city deserves the best IPTV service. Stream all Irish, UK and international channels directly in your Dublin home with our optimised local servers.', highlight: 'Local servers in Dublin for lowest latency' },
+  belfast: { desc: 'Northern Ireland\'s best IPTV subscription. Enjoy all UK, Irish and international channels in Belfast with our dedicated Northern Ireland infrastructure.', highlight: 'Dedicated Northern Ireland infrastructure' },
+  cork: { desc: 'The Rebel County deserves rebel-level entertainment. Catch all GAA, Premier League and international channels right here in Cork with crystal clear 4K.', highlight: 'Cork-optimised streaming servers' },
+  limerick: { desc: 'Treat yourself to the best IPTV in Limerick. All sports, films and series in HD and 4K, with extremely fast connections thanks to our local servers.', highlight: 'Fast connections for Limerick viewers' },
+  waterford: { desc: 'The Crystal City now has crystal clear IPTV. Enjoy over 10,000 channels in Waterford with our premium subscription service designed for Irish viewers.', highlight: 'Crystal clear streams for Waterford homes' },
+};
+
+const content = cityContent[city] || cityContent.dublin;
+
+const localSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": `IPTV Ireland ${cityDisplay}`,
+  "description": content.desc,
+  "url": `https://iptv-irish.ie/locaties/${city}/`,
+  "telephone": "+353-123-456-789",
+  "areaServed": {
+    "@type": "Place",
+    "name": cityDisplay
+  },
+  "priceRange": "€8 - €55"
+};
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  canonical={`/locaties/${city}/`}
+  schema={localSchema}
+>
+  <Header />
+  <WhatsAppPopup />
+  <WhatsPopup />
+
+  <!-- Local Hero -->
+  <section id="section-beta" class="relative min-h-[80vh] flex items-center pt-[80px] pb-16 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0A0E17] via-[#0D1321] to-[#0A0E17]"/>
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#169B62]/6 rounded-full blur-[100px] -translate-y-1/4 translate-x-1/4"/>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FF883E]/5 rounded-full blur-[80px] translate-y-1/4 -translate-x-1/4"/>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border mb-6 text-sm text-[#169B62] font-medium" style="background: rgba(22,155,98,0.12); border-color: rgba(22,155,98,0.3);">
+        <svg class="w-4 h-4 text-[#169B62]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM12 11a2 2 0 100-4 2 2 0 000 4z"/>
+        </svg>
+        <span class="uppercase tracking-wider text-[11px] font-bold">{cityDisplay} — Local Service</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-[4rem] font-black text-white leading-tight mb-6 max-w-4xl mx-auto">
+        Best IPTV in <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#169B62] to-[#FF883E]">{cityDisplay}</span>
+      </h1>
+      
+      <p class="text-lg sm:text-xl text-[#8C96AA] leading-relaxed mb-8 max-w-2xl mx-auto">
+        {content.desc} Stream more than <strong class="text-white">10,000+ live channels</strong> in <strong class="text-white">Full HD and 4K</strong> from {cityDisplay}.
+      </p>
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#169B62]/20 mb-10">
+        <span class="w-2 h-2 rounded-full bg-[#169B62] animate-pulse"/>
+        <span class="text-[#8C96AA] text-sm">{content.highlight}</span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href={whatsappOrder}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-[#169B62] to-[#0E6B42] hover:from-[#1BD97A] hover:to-[#169B62] text-white text-[15px] font-bold rounded-xl transition-all duration-300 shadow-xl shadow-[#169B62]/25 hover:shadow-[#169B62]/40 hover:-translate-y-0.5"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          <span>Order Now for {cityDisplay}</span>
+        </a>
+        <a href="/" class="inline-flex items-center gap-2 px-8 py-4 text-white/90 hover:text-white text-[15px] font-semibold rounded-xl border border-white/10 hover:bg-white/5 transition-all duration-300">
+          <span>Back to Home</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="section-delta" class="relative py-20 sm:py-28">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0D1321] via-[#0A0E17] to-[#0D1321]"/>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-[#FF883E]/10 border border-[#FF883E]/20 text-[12.5px] font-semibold text-[#FF883E] uppercase tracking-wider mb-4">Pricing</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4 font-['Space_Grotesk']">Choose Your Package for {cityDisplay}</h2>
+        <p class="text-[#8C96AA] text-lg">No hidden costs. No contract.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {plans.map((plan, i) => (
+          <div 
+            class={`scroll-animate relative rounded-2xl overflow-hidden ${plan.popular ? 'sm:col-span-2 xl:col-span-1' : ''}`}
+            style={`transition-delay: ${i * 100}ms; ${plan.popular ? 'background:linear-gradient(135deg,rgba(22,155,98,0.12),rgba(14,107,66,0.08));border:2px solid rgba(22,155,98,0.45);' : 'glass-card'}`}
+          >
+            {plan.popular && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span class="inline-block px-4 py-1 bg-gradient-to-r from-[#169B62] to-[#0E6B42] text-white text-[11px] font-bold uppercase tracking-wider rounded-full shadow-lg">Most Popular</span>
+              </div>
+            )}
+            <div class={`p-6 flex flex-col h-full ${plan.popular ? 'pt-8' : ''}`}>
+              <div class={`text-sm font-medium mb-1 mt-2 ${plan.popular ? 'text-[#169B62]' : 'text-[#8C96AA]'}`}>{plan.popular ? 'Best Deal' : plan.name}</div>
+              <h3 class="text-white font-bold text-xl mb-3">{plan.name}</h3>
+              <div class="mb-1">
+                <span class="text-4xl font-black text-white">&euro;{plan.price}</span>
+                <span class="text-[#8C96AA] text-sm ml-1">{plan.period}</span>
+              </div>
+              <div class="text-[#8C96AA] text-xs mb-1">{plan.monthly}</div>
+              {plan.savePct && <p class="text-[#169B62] text-xs font-semibold mb-4">Save {plan.savePct}</p>}
+              {!plan.savePct && <div class="mb-4"></div>}
+              <ul class="space-y-2 mb-8 flex-1">
+                {plan.features.map(f => (
+                  <li class="flex items-start gap-2 text-sm text-[#8C96AA]">
+                    <svg class="mt-0.5 flex-shrink-0 w-4 h-4" fill={plan.popular ? "#169B62" : "#22c55e"} viewBox="0 0 20 20" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a 
+                href={whatsappOrder}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`block w-full py-3 text-center rounded-xl text-sm font-bold transition-all duration-300 ${plan.popular ? 'bg-gradient-to-r from-[#169B62] to-[#0E6B42] text-white hover:from-[#1BD97A] hover:to-[#169B62] shadow-lg shadow-[#169B62]/20 hover:shadow-[#169B62]/40' : 'bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-[#169B62]/30'}`}
+              >
+                {plan.cta}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="relative py-20 sm:py-28">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0E17] to-[#0D1321]"/>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12 scroll-animate">
+        <h2 class="text-3xl font-black text-white mb-4 font-['Space_Grotesk']">Frequently Asked Questions</h2>
+        <p class="text-[#8C96AA]">Everything you want to know about IPTV in {cityDisplay}.</p>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-4">
+        {[{ q: `Is IPTV legal in ${cityDisplay}?`, a: 'Yes, IPTV is completely legal in Ireland when you subscribe to a legitimate service like ours. We comply with all local regulations.' }, { q: `How fast does it work in ${cityDisplay}?`, a: `With our ${cityDisplay}-optimised servers, activation takes less than 5 minutes and streams start instantly. You just need a stable internet connection.` }, { q: `Can I watch Irish channels in ${cityDisplay}?`, a: `Absolutely. All Irish channels including RTÉ, Virgin Media, TG4 and all Irish sports channels are fully available in our ${cityDisplay} package.` }].map((faq, i) => (
+          <details class="scroll-animate group glass-card rounded-xl overflow-hidden" style={`transition-delay: ${i * 50}ms;`}>
+            <summary class="flex items-center justify-between p-6 cursor-pointer list-none text-white font-semibold hover:text-[#FF883E] transition-colors">
+              <span class="text-[15px] pr-4">{faq.q}</span>
+              <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
+                <svg class="w-4 h-4 text-[#FF883E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6"><p class="text-[14px] leading-relaxed text-[#8C96AA]">{faq.a}</p></div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

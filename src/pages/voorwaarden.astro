@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppPopup from '../components/WhatsAppPopup.astro';
+import WhatsPopup from '../components/WhatsPopup.astro';
+
+const title = "Terms of Service | IPTV Ireland";
+const description = "IPTV Ireland terms of service. Read our terms and conditions before subscribing to our IPTV service.";
+---
+
+<Layout title={title} description={description} canonical="/voorwaarden/">
+  <Header />
+  <WhatsAppPopup />
+  <WhatsPopup />
+
+  <main class="relative min-h-screen pt-[80px] pb-16">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0E17] via-[#0D1321] to-[#0A0E17]" />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-16">
+        <h1 class="text-4xl font-black text-white mb-8 font-['Space_Grotesk']">Terms of Service</h1>
+        
+        <div class="space-y-8">
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">1. General</h2>
+            <p class="text-[#8C96AA] leading-relaxed">By accessing and using IPTV Ireland services, you accept and agree to be bound by these terms. These terms may be updated at any time without prior notice.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">2. Service Description</h2>
+            <p class="text-[#8C96AA] leading-relaxed">IPTV Ireland provides access to live TV channels and on-demand content via internet streaming. Service availability may vary and we do not guarantee uninterrupted access.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">3. Account Responsibility</h2>
+            <p class="text-[#8C96AA] leading-relaxed">You are responsible for maintaining the confidentiality of your account credentials. Sharing accounts beyond the permitted device limit is prohibited.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">4. Payments and Refunds</h2>
+            <p class="text-[#8C96AA] leading-relaxed">All payments are processed securely. Refund requests are evaluated on a case-by-case basis within 7 days of purchase. No refunds after account activation.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">5. Intellectual Property</h2>
+            <p class="text-[#8C96AA] leading-relaxed">All content, logos, and materials are the property of IPTV Ireland or its licensors. You may not reproduce, distribute, or create derivative works without written permission.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">6. Limitation of Liability</h2>
+            <p class="text-[#8C96AA] leading-relaxed">IPTV Ireland is not liable for indirect, incidental, or consequential damages arising from service use. Our liability is limited to the amount paid for the service.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">7. Governing Law</h2>
+            <p class="text-[#8C96AA] leading-relaxed">These terms are governed by the laws of Ireland. Any disputes shall be resolved in Irish courts.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

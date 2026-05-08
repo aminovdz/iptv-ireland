@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppPopup from '../components/WhatsAppPopup.astro';
+import WhatsPopup from '../components/WhatsPopup.astro';
+
+const title = "Contact IPTV Ireland | WhatsApp, Telegram & Email Support";
+const description = "Get in touch with IPTV Ireland via WhatsApp, Telegram or Email. Our team is available 24/7 to help you with setup, pricing and support.";
+
+const supportHours = {
+  whatsapp: '24/7',
+  telegram: '24/7',
+  email: 'Mon – Sun, 09:00 – 22:00',
+};
+
+const avgResponse = '< 5 minutes';
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "IPTV Ireland",
+      "url": "https://iptv-irish.ie",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "availableLanguage": "English",
+          "telephone": "+353-123-456-789"
+        }
+      ]
+    }
+  }}
+>
+  <Header />
+  <WhatsAppPopup />
+  <WhatsPopup />
+
+  <main class="relative min-h-screen pt-[80px] pb-16">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0E17] via-[#0D1321] to-[#0A0E17]"/>
+    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(rgba(255,136,62,0.04) 1px, transparent 1px); background-size: 48px 48px;"/>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero -->
+      <div class="text-center max-w-2xl mx-auto py-16 scroll-animate">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-[#169B62]/10 border border-[#169B62]/20 text-[12.5px] font-semibold text-[#169B62] uppercase tracking-wider mb-4">Contact</span>
+        <h1 class="text-4xl sm:text-5xl font-black text-white mb-4 font-['Space_Grotesk']">Contact Us</h1>
+        <p class="text-[#8C96AA] text-lg">Our team is ready to help you. Choose the channel that suits you best.</p>
+      </div>
+
+      <!-- Contact Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        <!-- WhatsApp -->
+        <a 
+          href="https://wa.link/9ezhx6"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="scroll-animate glass-card glass-card-hover rounded-2xl p-8 flex flex-col items-center text-center group transition-all duration-300"
+          style="transition-delay: 100ms;"
+        >
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(37,211,102,0.15); border: 1px solid rgba(37,211,102,0.3);">
+            <svg class="w-8 h-8" fill="#25D366" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-xl mb-2">WhatsApp</h3>
+          <p class="text-[#8C96AA] text-sm mb-4">+353 12 34 56 78<br>Click to chat</p>
+          <div class="flex items-center gap-2 text-[#25D366] text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"/>
+            Online — Typically responds in 5 min
+          </div>
+        </a>
+
+        <!-- Telegram -->
+        <a 
+          href="https://t.me/iptv_ireland_support"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="scroll-animate glass-card glass-card-hover rounded-2xl p-8 flex flex-col items-center text-center group transition-all duration-300"
+          style="transition-delay: 200ms;"
+        >
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(0,136,204,0.15); border: 1px solid rgba(0,136,204,0.3);">
+            <svg class="w-8 h-8" fill="#0088CC" viewBox="0 0 24 24">
+              <path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-xl mb-2">Telegram</h3>
+          <p class="text-[#8C96AA] text-sm mb-4">@iptv_ireland_support<br>Fast and easy to reach</p>
+          <div class="flex items-center gap-2 text-[#0088CC] text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-[#0088CC] animate-pulse"/>
+            Online — Typically responds in 5 min
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a 
+          href="mailto:contact@iptv-irish.ie"
+          class="scroll-animate glass-card glass-card-hover rounded-2xl p-8 flex flex-col items-center text-center group transition-all duration-300"
+          style="transition-delay: 300ms;"
+        >
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style="background: rgba(255,136,62,0.15); border: 1px solid rgba(255,136,62,0.3);">
+            <svg class="w-8 h-8" fill="none" stroke="#FF883E" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-xl mb-2">Email</h3>
+          <p class="text-[#8C96AA] text-sm mb-4">contact@iptv-irish.ie<br>Response within 24 hours</p>
+          <div class="flex items-center gap-2 text-[#FF883E] text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-[#FF883E] animate-pulse"/>
+            Available — Response in under 24h
+          </div>
+        </a>
+      </div>
+
+      <!-- Opening Hours -->
+      <div class="scroll-animate glass-card rounded-2xl p-8 max-w-3xl mx-auto mb-16">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 rounded-xl bg-[#169B62]/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#169B62]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-white font-['Space_Grotesk']">Support Opening Hours</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="glass rounded-xl p-4 text-center">
+            <p class="text-[#8C96AA] text-sm mb-1">WhatsApp & Telegram</p>
+            <p class="text-white font-semibold text-lg">24/7 Available</p>
+          </div>
+          <div class="glass rounded-xl p-4 text-center">
+            <p class="text-[#8C96AA] text-sm mb-1">Email Support</p>
+            <p class="text-white font-semibold text-lg">Mon – Sun</p>
+            <p class="text-[#8C96AA] text-sm">09:00 – 22:00</p>
+          </div>
+          <div class="glass rounded-xl p-4 text-center">
+            <p class="text-[#8C96AA] text-sm mb-1">Average Response</p>
+            <p class="text-[#169B62] font-semibold text-lg">&lt; 5 minutes</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Promo -->
+      <div class="scroll-animate glass-card rounded-2xl p-8 max-w-3xl mx-auto text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-14 h-14 rounded-2xl bg-[#169B62]/10 flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-[#169B62]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.885 2.291-2.614 2.844-2.988 1.455-.951 4.356-2.164 5.986.007 1.62 2.163 2.295 5.088 1.283 6.827-.404.69-1.134.991-2.04 1.091l-.348.009c-.461.032-.872.223-1.124.46-.311.301-.505.736-.552 1.223-.056.53.115 1.003.488 1.412l2.189 2.154M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 font-['Space_Grotesk']">Have a question?</h3>
+          <p class="text-[#8C96AA] mb-6">Check our comprehensive FAQ page for answers to the most asked questions about IPTV Ireland, activation, devices and payments.</p>
+          <a href="/" class="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#169B62] to-[#0E6B42] hover:from-[#1BD97A] hover:to-[#169B62] text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+            <span>Back to Home</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+    
+    document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+  })();
+</script>

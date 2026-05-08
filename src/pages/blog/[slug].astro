@@ -1,0 +1,249 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppPopup from '../../components/WhatsAppPopup.astro';
+import WhatsPopup from '../../components/WhatsPopup.astro';
+
+export function getStaticPaths() {
+  const slugs = [
+    'fix-buffering-streams',
+    'install-lg-smart-tv',
+    'firestick-optimization',
+    'epg-guide-explained',
+    'catchup-vs-vod',
+    'internet-speed-requirements',
+    'smart-tv-vs-firestick',
+    'vpn-for-iptv',
+    'recording-live-tv',
+    'optimising-wifi-streaming',
+    'parental-controls',
+  ];
+  return slugs.map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+
+const articles = {
+  'fix-buffering-streams': {
+    title: 'How to Fix Buffering on IPTV Streams',
+    date: '2024-12-15',
+    category: 'Troubleshooting',
+    content: [
+      { type: 'h2', text: 'Why Does IPTV Buffer?' },
+      { type: 'p', text: 'Buffering is the most common frustration with IPTV services. When your stream pauses to load, it is usually because of internet speed, device performance or server issues. The good news: most buffering problems are easy to fix.' },
+      { type: 'h2', text: '1. Check Your Internet Speed' },
+      { type: 'p', text: 'For smooth HD streaming you need at least 10 Mbps. For 4K, aim for 25 Mbps or higher. Use a speed test tool to check your connection. Most buffering issues come from WiFi interference — try a wired Ethernet connection if possible.' },
+      { type: 'h2', text: '2. Use a VPN' },
+      { type: 'p', text: 'ISPs sometimes throttle streaming traffic. A VPN can bypass these restrictions and often improves streaming stability significantly.' },
+      { type: 'h2', text: '3. Reduce Device Load' },
+      { type: 'p', text: 'Close background apps on your device. If you are using a Firestick, clear cache regularly. Older devices may struggle with 4K streams — try switching to HD quality.' },
+      { type: 'h2', text: '4. Choose the Right Server' },
+      { type: 'p', text: 'Some IPTV providers let you choose between multiple servers. Pick the one closest to your location. For Ireland, look for servers in Dublin or Belfast for the lowest latency.' },
+      { type: 'h2', text: '5. Update Your App and Firmware' },
+      { type: 'p', text: 'Outdated apps can cause playback issues. Always keep your IPTV app, device firmware and router software up to date.' },
+    ],
+  },
+  'install-lg-smart-tv': {
+    title: 'How to Install IPTV on Your LG Smart TV',
+    date: '2024-12-10',
+    category: 'Setup Guide',
+    content: [
+      { type: 'h2', text: 'Method 1: Using the LG Content Store' },
+      { type: 'p', text: 'The easiest way to install IPTV on your LG Smart TV is through the LG Content Store. Press the Home button on your remote, navigate to the LG Content Store and search for an IPTV player app. Download and install the app, then enter your login credentials provided by your IPTV subscription.' },
+      { type: 'h2', text: 'Method 2: Screen Mirroring from Phone' },
+      { type: 'p', text: 'If your preferred IPTV app is not available on the LG Content Store, you can use screen mirroring. Open the IPTV app on your phone, connect your phone and TV to the same WiFi network, then cast your screen to the TV.' },
+      { type: 'h2', text: 'Method 3: External Devices' },
+      { type: 'p', text: 'For the best experience, consider using a dedicated streaming device like an Amazon Fire TV Stick, Android TV box or Apple TV. These devices support a wider range of IPTV apps and often provide better performance.' },
+    ],
+  },
+  'firestick-optimization': {
+    title: 'Firestick Performance Tips for IPTV',
+    date: '2024-12-05',
+    category: 'Setup Guide',
+    content: [
+      { type: 'h2', text: 'Clear Cache Regularly' },
+      { type: 'p', text: 'Over time, apps accumulate cache which can slow down your Firestick. Go to Settings then Applications then Manage Installed Applications, select your IPTV app and choose Clear Cache. Do this weekly for optimal performance.' },
+      { type: 'h2', text: 'Free Up Storage Space' },
+      { type: 'p', text: 'The Firestick only has 8GB of storage. Uninstall unused apps and clear data from apps you rarely use. Go to Settings then My Fire TV then About then Restart to keep the system fresh.' },
+      { type: 'h2', text: 'Use an Ethernet Adapter' },
+      { type: 'p', text: 'WiFi can be unstable especially when multiple devices are connected. Amazon sells an official Ethernet adapter for the Firestick. A wired connection provides more stable streaming and reduces buffering.' },
+    ],
+  },
+  'epg-guide-explained': {
+    title: 'What is an EPG Guide and Why You Need It',
+    date: '2024-11-28',
+    category: 'Features',
+    content: [
+      { type: 'h2', text: 'What is an Electronic Programme Guide?' },
+      { type: 'p', text: 'The Electronic Programme Guide (EPG) is a digital TV guide that shows what is currently playing and what is coming up on each channel. It is like the TV guide in a newspaper, but updated in real-time and accessible directly from your IPTV app.' },
+      { type: 'h2', text: 'How to Use EPG' },
+      { type: 'p', text: 'Most IPTV apps display the EPG when you press the Guide or EPG button on your remote. You can browse by channel, time or genre. Some apps let you set reminders for upcoming shows.' },
+      { type: 'h2', text: 'EPG vs Catchup' },
+      { type: 'p', text: 'While the EPG shows what is on now and later, the Catchup feature lets you watch programmes from the past 7 days. These features work together to give you complete control over your viewing schedule.' },
+    ],
+  },
+  'catchup-vs-vod': {
+    title: 'Catchup vs VOD: What is the Difference?',
+    date: '2024-11-20',
+    category: 'Features',
+    content: [
+      { type: 'h2', text: 'Understanding Catchup' },
+      { type: 'p', text: 'Catchup allows you to watch recently aired live TV programmes. Typically ranging from 3 to 7 days back, this feature is perfect when you miss your favourite show.' },
+      { type: 'h2', text: 'Understanding VOD' },
+      { type: 'p', text: 'Video on Demand (VOD) is a library of films and series that you can watch anytime. Unlike Catchup which is tied to broadcast schedules, VOD content is always available.' },
+      { type: 'h2', text: 'Which One Should You Use?' },
+      { type: 'p', text: 'Use Catchup for recently aired live content like news and sports. Use VOD for films, series and older content. Most premium IPTV subscriptions include both features.' },
+    ],
+  },
+  'internet-speed-requirements': {
+    title: 'Minimum Internet Speed for IPTV: The Complete Guide',
+    date: '2024-11-15',
+    category: 'Troubleshooting',
+    content: [
+      { type: 'h2', text: 'Required Speed by Quality' },
+      { type: 'p', text: 'For SD channels: 5 Mbps minimum. For HD channels: 10 Mbps minimum. For Full HD: 15 Mbps recommended. For 4K UHD: 25 Mbps minimum with 35 plus Mbps recommended for multiple devices.' },
+      { type: 'h2', text: 'Shared Connections' },
+      { type: 'p', text: 'If multiple people in your household use the internet simultaneously, add up their usage. A family of four with multiple streams, gaming and browsing should have at least 100 Mbps for a smooth experience.' },
+      { type: 'h2', text: 'Testing Your Speed' },
+      { type: 'p', text: 'Use speedtest.net or fast.com to check your current connection. Run the test at different times of the day to see peak vs off-peak performance. If your speed drops during peak hours, consider upgrading your plan.' },
+    ],
+  },
+  'smart-tv-vs-firestick': {
+    title: 'Smart TV vs Firestick: Which is Better for IPTV?',
+    date: '2024-11-10',
+    category: 'Setup Guide',
+    content: [
+      { type: 'h2', text: 'Built-In Smart TV Apps' },
+      { type: 'p', text: 'Modern Smart TVs from Samsung and LG come with their own app stores. You can download IPTV apps directly without any extra hardware. However, these apps sometimes lack updates and features compared to dedicated streaming devices.' },
+      { type: 'h2', text: 'Amazon Fire TV Stick Advantages' },
+      { type: 'p', text: 'The Firestick is affordable, portable and supports a wider range of IPTV apps. It also receives regular updates and has powerful voice controls. For most users, the Firestick offers a smoother IPTV experience than built-in TV apps.' },
+      { type: 'h2', text: 'Which Should You Choose?' },
+      { type: 'p', text: 'If you already have a Smart TV, try the built-in apps first. But if you want the best performance and widest app support, invest in a Firestick or Android TV box. Both options work perfectly with IPTV Ireland.' },
+    ],
+  },
+  'vpn-for-iptv': {
+    title: 'Why You Should Use a VPN with IPTV',
+    date: '2024-11-05',
+    category: 'Troubleshooting',
+    content: [
+      { type: 'h2', text: 'ISP Throttling Explained' },
+      { type: 'p', text: 'Internet Service Providers sometimes throttle streaming traffic during peak hours. This means your connection speed drops when you are watching IPTV, causing buffering and low quality.' },
+      { type: 'h2', text: 'How a VPN Helps' },
+      { type: 'p', text: 'A VPN encrypts your internet traffic, making it impossible for your ISP to distinguish between IPTV streaming and regular browsing. This prevents throttling and often improves streaming stability.' },
+      { type: 'h2', text: 'Best VPNs for IPTV' },
+      { type: 'p', text: 'Look for VPN providers with fast servers in Ireland or the UK. NordVPN, ExpressVPN and Surfshark are popular choices among IPTV users. Always test your speed with and without VPN to find the best setup.' },
+    ],
+  },
+  'recording-live-tv': {
+    title: 'How to Record Live TV with Your IPTV Subscription',
+    date: '2024-10-28',
+    category: 'Features',
+    content: [
+      { type: 'h2', text: 'Built-In Recording Features' },
+      { type: 'p', text: 'Some IPTV apps support native recording functionality. Check your app settings for a Record button while watching live TV. Recordings are usually saved to your device storage or cloud storage depending on the app.' },
+      { type: 'h2', text: 'Third-Party Recording Tools' },
+      { type: 'p', text: 'If your IPTV app does not support recording, you can use screen recording software. On Windows, OBS Studio is a free option. On mobile devices, built-in screen recording works well for short clips.' },
+      { type: 'h2', text: 'Legal Considerations' },
+      { type: 'p', text: 'Recording content for personal use is generally acceptable. However, sharing or distributing recorded content may violate copyright laws. Always use recordings for personal viewing only.' },
+    ],
+  },
+  'optimising-wifi-streaming': {
+    title: 'Optimise Your WiFi for Buffer-Free IPTV Streaming',
+    date: '2024-10-20',
+    category: 'Troubleshooting',
+    content: [
+      { type: 'h2', text: 'Router Placement Matters' },
+      { type: 'p', text: 'Place your router in a central, elevated location away from walls and metal objects. WiFi signals weaken with distance and obstacles, so position your router as close to your streaming device as possible.' },
+      { type: 'h2', text: 'Use 5GHz Instead of 2.4GHz' },
+      { type: 'p', text: 'Modern routers broadcast on two bands. The 5GHz band is less crowded and faster, ideal for HD and 4K streaming. Connect your Smart TV or Firestick to the 5GHz network for the best performance.' },
+      { type: 'h2', text: 'Reduce Network Congestion' },
+      { type: 'p', text: 'Limit the number of devices using your network during streaming. Pause large downloads and ask others to avoid heavy browsing while you watch. This ensures maximum bandwidth for your IPTV stream.' },
+    ],
+  },
+  'parental-controls': {
+    title: 'Setting Up Parental Controls on IPTV',
+    date: '2024-10-15',
+    category: 'Features',
+    content: [
+      { type: 'h2', text: 'Why Use Parental Controls?' },
+      { type: 'p', text: 'With thousands of channels available, parental controls help protect children from inappropriate content. They also prevent accidental purchases or configuration changes by curious young viewers.' },
+      { type: 'h2', text: 'How to Enable Controls' },
+      { type: 'p', text: 'Most IPTV apps offer a settings menu for parental controls. You can set a PIN code and block specific categories like adult channels, gambling or violent content. Some apps also allow time-based restrictions.' },
+      { type: 'h2', text: 'Alternative Methods' },
+      { type: 'p', text: 'If your IPTV app lacks parental controls, consider using device-level restrictions. Both iOS and Android offer parental control settings. Router-level filtering is another option for household-wide protection.' },
+    ],
+  },
+};
+
+const article = articles[slug] || articles['fix-buffering-streams'];
+const title = article.title + ' | IPTV Ireland Blog';
+const description = article.content[0].text;
+
+const relatedPosts = [
+  { slug: 'fix-buffering-streams', title: 'How to Fix Buffering on IPTV Streams', category: 'Troubleshooting' },
+  { slug: 'install-lg-smart-tv', title: 'How to Install IPTV on Your LG Smart TV', category: 'Setup Guide' },
+  { slug: 'firestick-optimization', title: 'Firestick Performance Tips for IPTV', category: 'Setup Guide' },
+].filter(p => p.slug !== slug);
+---
+
+<Layout title={title} description={description} canonical={`/blog/${slug}/`}>
+  <Header />
+  <WhatsAppPopup />
+  <WhatsPopup />
+
+  <main class="relative min-h-screen pt-[80px] pb-16">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0E17] via-[#0D1321] to-[#0A0E17]" />
+    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(rgba(255,136,62,0.04) 1px, transparent 1px); background-size: 48px 48px;" />
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-16">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 rounded-lg bg-[#169B62]/10 text-[#169B62] text-[11px] font-semibold uppercase tracking-wider">{article.category}</span>
+          <span class="text-[#5F6B80] text-sm">{article.date}</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-8 font-['Space_Grotesk']">{article.title}</h1>
+      </div>
+
+      <article>
+        {article.content.map((block, i) => {
+          if (block.type === 'h2') return <h2 class="text-2xl font-bold text-white mt-12 mb-4">{block.text}</h2>;
+          if (block.type === 'p') return <p class="text-[#8C96AA] leading-relaxed mb-4">{block.text}</p>;
+          return null;
+        })}
+      </article>
+
+      <div class="mt-16">
+        <div class="glass-card rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(22,155,98,0.12), rgba(255,136,62,0.08)); border: 1px solid rgba(22,155,98,0.3);">
+          <h3 class="text-xl font-bold text-white mb-2">Need Help With This?</h3>
+          <p class="text-[#8C96AA] mb-6">IPTV Ireland offers 24/7 support via WhatsApp. Get expert help in minutes, not hours.</p>
+          <a 
+            href="https://wa.link/9ezhx6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#169B62] to-[#0E6B42] text-white font-bold rounded-xl transition-all duration-300 hover:from-[#1BD97A] hover:to-[#169B62] shadow-lg"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      {relatedPosts.length > 0 && (
+        <div class="mt-16">
+          <h3 class="text-xl font-bold text-white mb-6">Related Articles</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {relatedPosts.map(post => (
+              <a href={`/blog/${post.slug}/`} class="glass-card glass-card-hover rounded-2xl p-6 block group">
+                <span class="px-2.5 py-1 rounded-lg bg-[#169B62]/10 text-[#169B62] text-[11px] font-semibold uppercase tracking-wider mb-2 inline-block">{post.category}</span>
+                <h4 class="text-white font-bold group-hover:text-[#169B62] transition-colors">{post.title}</h4>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

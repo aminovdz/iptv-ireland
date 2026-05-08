@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsPopup from '../components/WhatsPopup.astro';
+import WhatsAppPopup from '../components/WhatsAppPopup.astro';
+
+const title = "Privacy Policy | IPTV Ireland";
+const description = "IPTV Ireland privacy policy. Learn how we collect, use and protect your personal data.";
+---
+
+<Layout title={title} description={description} canonical="/privacy/">
+  <Header />
+  <WhatsAppPopup />
+  <WhatsPopup />
+
+  <main class="relative min-h-screen pt-[80px] pb-16">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0E17] via-[#0D1321] to-[#0A0E17]" />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-16">
+        <h1 class="text-4xl font-black text-white mb-8 font-['Space_Grotesk']">Privacy Policy</h1>
+        
+        <div class="space-y-8">
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">1. Introduction</h2>
+            <p class="text-[#8C96AA] leading-relaxed">IPTV Ireland respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use and safeguard your information when you use our services.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">2. Information We Collect</h2>
+            <p class="text-[#8C96AA] leading-relaxed">We may collect: contact information (name, email, phone number), device information, IP addresses, payment details, and usage data to improve our services.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">3. How We Use Your Information</h2>
+            <p class="text-[#8C96AA] leading-relaxed">Your information is used to: provide and manage our services, process payments, communicate with you, improve our platform, and comply with legal obligations.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">4. Data Security</h2>
+            <p class="text-[#8C96AA] leading-relaxed">We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure or destruction.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">5. Your Rights</h2>
+            <p class="text-[#8C96AA] leading-relaxed">Under GDPR, you have the right to: access your data, request correction, request erasure, restrict processing, and object to processing. Contact us to exercise these rights.</p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold text-white mb-4">6. Contact</h2>
+            <p class="text-[#8C96AA] leading-relaxed">For privacy-related inquiries, contact us via WhatsApp, Telegram or email at contact@iptv-ireland.co.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
