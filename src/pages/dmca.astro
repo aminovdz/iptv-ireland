@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsPopup from '../components/WhatsPopup.astro';
+import WhatsAppPopup from '../components/WhatsAppPopup.astro';
+
+const title = "DMCA Notice | IPTV Ireland";
+const description = "DMCA policy and disclaimer for IPTV Ireland.";
+---
+
+<Layout title={title} description={description} canonical="/dmca/">
+  <Header />
+  <WhatsAppPopup />
+  <WhatsPopup />
+
+  <main class="relative min-h-screen pt-[80px] pb-16">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A0E17] via-[#0D1321] to-[#0A0E17]" />
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-16">
+        <h1 class="text-4xl font-black text-white mb-8 font-['Space_Grotesk']">DMCA Notice & Disclaimer</h1>
+        
+        <div class="space-y-8">
+          <section>
+            <p class="text-[#8C96AA] leading-relaxed">This website is a review and informational blog. <strong>We do not host, control, provide, or sell</strong> any of the products, services, or content mentioned or reviewed on this site.</p>
+            <p class="text-[#8C96AA] leading-relaxed mt-4">All content, guides, and articles are provided strictly for <strong>educational and informational purposes</strong>.</p>
+            <p class="text-[#8C96AA] leading-relaxed mt-4">We take no responsibility for how users may choose to use the information contained herein. Users are responsible for complying with their local laws regarding streaming and copyright protection.</p>
+            <p class="text-[#8C96AA] leading-relaxed mt-4">If you believe that any content on this site infringes upon your copyright, please contact us via our contact page and we will promptly remove any offending links or references.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
