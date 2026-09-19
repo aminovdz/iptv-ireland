@@ -10,6 +10,86 @@ const description = "Read the IPTV Ireland blog for setup guides, troubleshootin
 
 const posts = [
   {
+    slug: 'best-iptv-ireland-2026',
+    title: 'Best IPTV Service in Ireland 2026: A Complete Buyer\'s Guide',
+    excerpt: 'Looking for the best IPTV service in Ireland? We compare the top providers for stability, channel selection, and price.',
+    date: '2026-09-15',
+    category: 'Guides',
+    image: '/images/blog/best-iptv-ireland-2026.jpg'
+  },
+  {
+    slug: 'watch-premier-league-iptv',
+    title: 'How to Watch Premier League Football on IPTV in Ireland',
+    excerpt: 'Never miss a match. Here is the ultimate guide to streaming Premier League, Champions League, and GAA on your IPTV service.',
+    date: '2026-09-10',
+    category: 'Sports',
+    image: '/images/blog/watch-premier-league.jpg'
+  },
+  {
+    slug: 'is-iptv-legal-ireland',
+    title: 'Is IPTV Legal in Ireland? A Complete Guide',
+    excerpt: 'Everything you need to know about the legality of IPTV services in Ireland and how to stream safely.',
+    date: '2026-09-05',
+    category: 'Information',
+    image: '/images/blog/is-iptv-legal.jpg'
+  },
+  {
+    slug: 'top-5-iptv-players-apple-tv',
+    title: 'Top 5 IPTV Players for Apple TV in Ireland',
+    excerpt: 'Got an Apple TV? These are the 5 best IPTV applications for tvOS that offer the smoothest streaming experience.',
+    date: '2026-08-28',
+    category: 'Setup Guide',
+    image: '/images/blog/apple-tv-iptv.jpg'
+  },
+  {
+    slug: 'avoid-buffering-live-sports',
+    title: 'How to Avoid IPTV Buffering During Big Sports Events',
+    excerpt: 'Tired of buffering during the big match? Follow these technical steps to ensure a flawless streaming experience.',
+    date: '2026-08-22',
+    category: 'Troubleshooting',
+    image: '/images/blog/avoid-buffering.jpg'
+  },
+  {
+    slug: 'iptv-vs-sky-ireland',
+    title: 'IPTV vs Sky TV: Which is Better for Irish Homes?',
+    excerpt: 'We compare the costs, channels, and reliability of traditional Sky TV against modern IPTV subscriptions.',
+    date: '2026-08-15',
+    category: 'Comparison',
+    image: '/images/blog/iptv-vs-sky.jpg'
+  },
+  {
+    slug: 'tivimate-setup-guide',
+    title: 'Setting Up Tivimate for IPTV: The Ultimate Guide',
+    excerpt: 'Tivimate is widely considered the best IPTV player for Android. Learn how to set it up and unlock its premium features.',
+    date: '2026-08-10',
+    category: 'Setup Guide',
+    image: '/images/blog/tivimate-setup.jpg'
+  },
+  {
+    slug: 'watch-uk-channels-ireland',
+    title: 'How to Watch UK Channels on IPTV from Ireland',
+    excerpt: 'Missing BBC, ITV, or Channel 4? Discover how easy it is to stream all UK terrestrial and premium channels from Ireland.',
+    date: '2026-08-05',
+    category: 'Guides',
+    image: '/images/blog/uk-channels.jpg'
+  },
+  {
+    slug: 'best-broadband-iptv',
+    title: 'Best Broadband Providers in Ireland for IPTV Streaming',
+    excerpt: 'A reliable IPTV experience starts with good internet. We rank the best Irish broadband providers for 4K streaming.',
+    date: '2026-07-28',
+    category: 'Information',
+    image: '/images/blog/best-broadband.jpg'
+  },
+  {
+    slug: 'iptv-smarters-pro-guide',
+    title: 'IPTV Smarters Pro: Complete Configuration Guide',
+    excerpt: 'Master IPTV Smarters Pro with our comprehensive guide to adding playlists, EPGs, and customising your layout.',
+    date: '2026-07-20',
+    category: 'Setup Guide',
+    image: '/images/blog/iptv-smarters.jpg'
+  },
+  {
     slug: 'fix-buffering-streams',
     title: 'How to Fix Buffering on IPTV Streams',
     excerpt: 'Buffering ruining your viewing experience? Learn the top 5 ways to eliminate buffering and enjoy smooth 4K playback on any device.',
@@ -88,7 +168,7 @@ const posts = [
   },
 ];
 
-const categories = ['All', 'Setup Guide', 'Troubleshooting', 'Features'];
+const categories = ['All', 'Setup Guide', 'Troubleshooting', 'Features', 'Guides', 'Sports', 'Information', 'Comparison'];
 ---
 
 <Layout title={title} description={description} canonical="/blog/">
@@ -125,6 +205,11 @@ const categories = ['All', 'Setup Guide', 'Troubleshooting', 'Features'];
             class="scroll-animate glass-card glass-card-hover rounded-2xl p-6 group block"
             style={`transition-delay: ${i * 100}ms;`}
           >
+            {post.image && (
+              <div class="w-full h-48 rounded-xl overflow-hidden mb-4 border border-white/5 shadow-lg">
+                <img src={post.image} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>
+            )}
             <div class="flex items-center gap-2 mb-3">
               <span class="px-2.5 py-1 rounded-lg bg-[#169B62]/10 text-[#169B62] text-[11px] font-semibold uppercase tracking-wider">{post.category}</span>
               <span class="text-[#5F6B80] text-xs">{post.date}</span>
